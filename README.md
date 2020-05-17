@@ -1,4 +1,4 @@
 # Moon_Phase_Zodiac
 
-## Sample Output: 
+Sample Output: 
 ![](files/sample_output.png)  
