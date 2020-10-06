@@ -63,11 +63,11 @@ public class MoonPhase{
 
 		System.out.println("*********************************************************");
 		System.out.printf("%-16s %-19s %19s%n","* Hello! Today is", formatDate(d),"*");
-		System.out.printf("%-38s %-5.2f %12s%n","* The moon age since last New Moon is:",age,"*");
+		//System.out.printf("%-38s %-5.2f %-4s %7s%n","* The moon age since last New Moon is:",age,"days","*");
 		System.out.printf("%-22s %-18s %15s%n","* The moon's phase is:",getMoonPhase(age), "*");
 		System.out.printf("%-16s %-13s %25s%n","* The sun is in:", getSunSign(d), "*");
 		System.out.printf("%-17s %-13s %24s%n","* The moon is in:", getMoonSign(d),"*");
-		System.out.println("*********************************************************");
+		//System.out.println("*********************************************************");
 	}
 
 	/**
@@ -344,56 +344,64 @@ public class MoonPhase{
 		currDate = LocalDateTime.now();
 
 		printWelcome(currDate);
-		System.out.println();
-		System.out.println();		
+		//System.out.println();
+		//System.out.println();		
 
 		//print next dates of interest
-		System.out.println("*********************************************************");
-		for(int j = 0; j < nextPhaseNames.length;j++){
-			System.out.printf("* %-5.2f %-15s %16s %2s %-10s %2s%n",nextPhaseDays[j], "days until next",nextPhaseNames[j],"on",formatDay(nextPhaseDate[j]),"*");
-		}
-		System.out.println("*********************************************************");
-		System.out.println();
-		System.out.println();
+		//System.out.println("*********************************************************");
+		//for(int j = 0; j < nextPhaseNames.length;j++){
+		//	System.out.printf("* %-5.2f %-15s %16s %2s %-10s %2s%n",nextPhaseDays[j], "days until next",nextPhaseNames[j],"on",formatDay(nextPhaseDate[j]),"*");
+		//}
+		//System.out.println("*********************************************************");
+		//System.out.println();
+		//System.out.println();
+		//System.out.println("*********************************************************");
+        for(int j = 2; j <= 2;j++){
+             System.out.printf("* %-5.2f %-15s %16s %2s %-10s %2s%n",nextPhaseDays[j], "days until next",nextPhaseNames[j],"on",formatDay(nextPhaseDate[j]),"*");
+         }
+         System.out.println("*********************************************************");
+         System.out.println();
+         System.out.println();
+
 
 		//find moonphase, sun sign, moon sign from user input... loop until quit
-		do{
-			isValidInput = false;
-			System.out.print("Enter a timestamp to find the moon's phase: ");
-			userInput = scnr.nextLine();
-			System.out.println();
+		// do{
+		// 	isValidInput = false;
+		// 	System.out.print("Enter a timestamp to find the moon's phase: ");
+		// 	userInput = scnr.nextLine();
+		// 	System.out.println();
 
-			while(!isValidInput){
+		// 	while(!isValidInput){
 
-				try{
+		// 		try{
 
-					LocalDateTime.parse(userInput,dateFormat);
-					isValidInput = true;	
+		// 			LocalDateTime.parse(userInput,dateFormat);
+		// 			isValidInput = true;	
 
-				}catch (java.time.format.DateTimeParseException e){ 
-					System.out.print("Invalid input, enter a timestamp in the form yyyy-MM-dd HH:mm:ss: ");
-					userInput = scnr.nextLine();
-				}	
-			}		
+		// 		}catch (java.time.format.DateTimeParseException e){ 
+		// 			System.out.print("Invalid input, enter a timestamp in the form yyyy-MM-dd HH:mm:ss: ");
+		// 			userInput = scnr.nextLine();
+		// 		}	
+		// 	}		
 
-			LocalDateTime userInputFormatted = LocalDateTime.parse(userInput,dateFormat); 
-			userMoonAge = getMoonAge(userInputFormatted);
-			userMoonPhase = getMoonPhase(userMoonAge);
+		// 	LocalDateTime userInputFormatted = LocalDateTime.parse(userInput,dateFormat); 
+		// 	userMoonAge = getMoonAge(userInputFormatted);
+		// 	userMoonPhase = getMoonPhase(userMoonAge);
 
-			System.out.println("Moon phase at " + userInput + " is " + userMoonPhase);
-			System.out.println("The sun is in: " + getSunSign(userInputFormatted));
-			System.out.println("The moon is in: " + getMoonSign(userInputFormatted));
-			System.out.println();
-			System.out.println();
-			System.out.println();
+		// 	System.out.println("Moon phase at " + userInput + " is " + userMoonPhase);
+		// 	System.out.println("The sun is in: " + getSunSign(userInputFormatted));
+		// 	System.out.println("The moon is in: " + getMoonSign(userInputFormatted));
+		// 	System.out.println();
+		// 	System.out.println();
+		// 	System.out.println();
 
-			System.out.println("Would you like to see another timestamp? (y/n) ");
-			continueFlag = scnr.nextLine();
+		// 	System.out.println("Would you like to see another timestamp? (y/n) ");
+		// 	continueFlag = scnr.nextLine();
 
-			while (!continueFlag.equalsIgnoreCase("y") && !continueFlag.equalsIgnoreCase("n")){
-				System.out.println("Please enter 'y' to input another timestamp or 'n' to quit (without quotes)");
-				continueFlag=scnr.nextLine();
-			}
-		} while (!continueFlag.equalsIgnoreCase("N"));
+		// 	while (!continueFlag.equalsIgnoreCase("y") && !continueFlag.equalsIgnoreCase("n")){
+		// 		System.out.println("Please enter 'y' to input another timestamp or 'n' to quit (without quotes)");
+		// 		continueFlag=scnr.nextLine();
+		// 	}
+		// } while (!continueFlag.equalsIgnoreCase("N"));
 	}//end main
 }//end class
